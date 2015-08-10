@@ -34,8 +34,8 @@ public class ProbarManejadorDeArchivo {
     public void laPrimerLineaDelArchivoEsCorrecta() throws FileNotFoundException, IOException{
         Tablero texperado=new Tablero(7,6);
         ManejadorArchivo manejador=new ManejadorArchivo();
-        manejador.setRutaArchivo("src/main/resources/reglas.txt");
-        Tablero t=manejador.getPrimeraLinea();
+        String linea = manejador.getPrimeraLinea();
+        Tablero t = new Tablero(manejador.getCoordenadasX(linea), manejador.getCoordenadasY(linea));
         Assert.assertTrue(texperado.equals(t));
     }
     
