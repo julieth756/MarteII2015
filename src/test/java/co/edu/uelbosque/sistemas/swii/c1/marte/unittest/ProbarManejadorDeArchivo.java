@@ -5,6 +5,7 @@
  */
 package co.edu.uelbosque.sistemas.swii.c1.marte.unittest;
 
+import co.edu.uelbosque.sistemas.swii.c1.marte.Coordenada;
 import co.edu.uelbosque.sistemas.swii.c1.marte.ManejadorArchivo;
 import co.edu.uelbosque.sistemas.swii.c1.marte.Tablero;
 import java.io.FileNotFoundException;
@@ -32,11 +33,21 @@ public class ProbarManejadorDeArchivo {
     
     @Test
     public void laPrimerLineaDelArchivoEsCorrecta() throws FileNotFoundException, IOException{
-        Tablero texperado=new Tablero(7,6);
         ManejadorArchivo manejador=new ManejadorArchivo();
+        manejador.setRutaArchivo("src/main/resources/reglas.txt");
         String linea = manejador.getPrimeraLinea();
-        Tablero t = new Tablero(manejador.getCoordenadasX(linea), manejador.getCoordenadasY(linea));
-        Assert.assertTrue(texperado.equals(t));
+        String lineaesperada="7 6";
+        Assert.assertEquals(linea,lineaesperada);
+        
+    }
+    
+    @Test
+    public void laCoordenadaInicialEsCorrecta() throws FileNotFoundException, IOException{
+        Coordenada c=new Coordenada(7,6);
+        ManejadorArchivo manejador=new ManejadorArchivo();
+        manejador.setRutaArchivo("src/main/resources/reglas.txt");
+        Coordenada esperada=manejador.getCoordenadaInicial();
+        Assert.assertEquals(c,esperada);
     }
     
 }
