@@ -19,13 +19,15 @@ public class PosicionE {
         this.y1=y1;
         this.s1=s1;
     }
-    
+
     @Override
-     public boolean equals(Object obj) {
+    public boolean equals(Object obj) {
         if(obj == null) return false;
-        if(!(obj instanceof Coordenada)) return false;
+        if(!(obj instanceof PosicionE)) return false;
         PosicionE tmp = (PosicionE)obj;
-        return (this.x1==tmp.x1 && this.y1==tmp.y1 && this.s1 == tmp.s1);
+        return (this.x1==tmp.x1 && this.y1==tmp.y1 && this.s1.equals(tmp.s1));
     }
+    
+    
 
 }
