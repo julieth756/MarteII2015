@@ -36,8 +36,6 @@ public class ManejadorArchivo {
         return primeraLinea;
     }   
     
-
-
     public Coordenada getCoordenadaInicial() throws IOException {
         if(primeraLinea==null)
             getPrimeraLinea();

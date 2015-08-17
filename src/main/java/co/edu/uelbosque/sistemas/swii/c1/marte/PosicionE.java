@@ -5,8 +5,6 @@
  */
 package co.edu.uelbosque.sistemas.swii.c1.marte;
 
-import java.util.Objects;
-
 /**
  *
  * @author jcobos
