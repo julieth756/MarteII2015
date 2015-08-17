@@ -21,6 +21,7 @@ public class ManejadorArchivo {
     FileReader fr;
     BufferedReader br;
     String primeraLinea;
+    String segundaLinea;
     
     public void setRutaArchivo(String ruta) throws FileNotFoundException {
         reglas=new File(ruta);
@@ -46,5 +47,21 @@ public class ManejadorArchivo {
         return new Coordenada(x,y);
     }
 
+    public String getSegundaLinea() throws IOException {
+        getPrimeraLinea();
+        segundaLinea=br.readLine();
+        return segundaLinea;
+        
+    }
+
+    public PosicionE getPosicionInicialExplorador() throws IOException {
+       if(segundaLinea==null)
+           getSegundaLinea();
+       String posic[]=segundaLinea.split(" ");
+       int x1=Integer.parseInt(posic[0]);
+       int y1=Integer.parseInt(posic[1]);
+       String s1= posic[2];
+       return new PosicionE(x1,y1,s1);
+    }
    
 }

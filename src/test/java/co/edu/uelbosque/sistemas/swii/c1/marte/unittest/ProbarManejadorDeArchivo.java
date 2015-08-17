@@ -8,6 +8,7 @@ package co.edu.uelbosque.sistemas.swii.c1.marte.unittest;
 import co.edu.uelbosque.sistemas.swii.c1.marte.Coordenada;
 import co.edu.uelbosque.sistemas.swii.c1.marte.ManejadorArchivo;
 import co.edu.uelbosque.sistemas.swii.c1.marte.Tablero;
+import co.edu.uelbosque.sistemas.swii.c1.marte.PosicionE;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import org.testng.Assert;
@@ -36,8 +37,8 @@ public class ProbarManejadorDeArchivo {
         ManejadorArchivo manejador=new ManejadorArchivo();
         manejador.setRutaArchivo("src/main/resources/reglas.txt");
         String linea = manejador.getPrimeraLinea();
-        String lineaesperada="7 6";
-        Assert.assertEquals(linea,lineaesperada);
+        String lineaUnoEsperada="7 6";
+        Assert.assertEquals(linea,lineaUnoEsperada);
         
     }
     
@@ -50,4 +51,29 @@ public class ProbarManejadorDeArchivo {
         Assert.assertEquals(c,esperada);
     }
     
+    @Test
+    public void crearTablero() throws FileNotFoundException, IOException{
+        ManejadorArchivo manejador=new ManejadorArchivo();
+        manejador.setRutaArchivo("src/main/resources/reglas.txt");    
+        Tablero t=new Tablero();
+        t.crearTablero();
+    }
+    
+    @Test
+    public void laSegundaLineaEsCorrecta() throws FileNotFoundException, IOException{
+        ManejadorArchivo manejador=new ManejadorArchivo();
+        manejador.setRutaArchivo("src/main/resources/reglas.txt");
+        String linea = manejador.getSegundaLinea();
+        String lineaDosEsperada = "1 2 N";
+        Assert.assertEquals(linea,lineaDosEsperada);
+    }
+    
+    @Test
+    public void laPosicionInicialDelExploradorEsCorrecta() throws FileNotFoundException, IOException{
+        ManejadorArchivo manejador=new ManejadorArchivo();
+        manejador.setRutaArchivo("src/main/resources/reglas.txt");
+        PosicionE posE = new PosicionE(1,2,"N");
+        PosicionE esperadaE = manejador.getPosicionInicialExplorador();
+        Assert.assertEquals(posE, esperadaE);
+    }
 }

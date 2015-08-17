@@ -5,6 +5,9 @@
  */
 package co.edu.uelbosque.sistemas.swii.c1.marte;
 
+import co.edu.uelbosque.sistemas.swii.c1.marteGUI.TableroGUI;
+import java.awt.Component;
+
 /**
  *
  * @author Alejandro
@@ -42,7 +45,11 @@ public class Tablero {
             return true;
         return false;
     }
-    
+
+    public void crearTablero() {
+
+    }
+
     
 
 }
