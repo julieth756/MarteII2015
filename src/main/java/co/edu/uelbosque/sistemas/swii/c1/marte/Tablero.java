@@ -47,7 +47,7 @@ public class Tablero {
     }
 
     public void crearTablero() {
-
+       TableroGUI tableroG = new TableroGUI();
     }
 
     

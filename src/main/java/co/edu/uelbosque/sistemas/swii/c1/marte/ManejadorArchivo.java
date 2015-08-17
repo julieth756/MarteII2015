@@ -48,8 +48,7 @@ public class ManejadorArchivo {
     public String getSegundaLinea() throws IOException {
         getPrimeraLinea();
         segundaLinea=br.readLine();
-        return segundaLinea;
-        
+        return segundaLinea;        
     }
 
     public PosicionE getPosicionInicialExplorador() throws IOException {
