@@ -48,6 +48,7 @@ public class Tablero {
 
     public void crearTablero() {
        TableroGUI tableroG = new TableroGUI();
+       tableroG.setVisible(true);
     }
 
     
